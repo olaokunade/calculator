@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="animate-css-animate.css-e8c4fab/animate.min.css">
+            <link rel="stylesheet" href="fontawesome-free-5.15.1-web/css/all.css">
+            <link rel="stylesheet" href="bootstrap-4.5.3-dist/css/bootstrap.min.css">
+        <script src="/bootstrap-4.5.3-dist/jquery-3.5.1.min.js"> </script>
+            <script type="text/javascript" src="/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
+    </head>
+    <style>
+        #input{
+            display: grid;
+            grid-template-columns: repeat(5, 70px);
+            grid-template-rows: repeat(7, 70px);
+            justify-content: center;
+     
+        }
+        body{
+            background-color: rgb(152, 187, 187);
+        }
+    
+        #container{
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            margin: 10px auto;
+            box-shadow: 2px 3px 2px 2px rgb(49, 47, 47) , -2px -3px 2px 2px rgb(209, 207, 207) ;
+            border-radius: 20px;
+            padding: 10px 5px 5px 5px;
+            background-color: rgba(59, 42, 42, 0.5);
+    
+        }
+        .span{
+            
+            background-color: rgb(78, 77, 76);
+            border-radius: 7px;
+            margin: 12px 5px;
+            color: whitesmoke;
+            font-size: x-large;
+        }
+        .span:hover{
+            background-color: rgb(44, 48, 48);
+            box-shadow:  2px 2px 2px white inset,  -2px -2px -2px rgb(17, 16, 16) inset ;
+            border-radius: 12px;
+        }
+        #output{
+            background-color: #383838;
+            width: 370px;
+            height: 160px;
+            margin: 10px 5px 10px 5px;
+            justify-content: center;
+            align-self: center;
+            box-shadow: 2px 2px 2px black  inset, -2px -2px 3px rgb(202, 195, 195) inset;
+            border-radius: 20px;
+        }
+        #firstoutput{
+            width: fit-content;
+            color: white;
+            font-size: large;
+            word-wrap: break-word;
+           word-break: break-all;
+           padding: 4px 10px;
+           display: none;
+        }
+        #finaloutput{
+           color: white;
+           font-weight: bolder;
+           font-size: x-large;
+           text-shadow: 2px 2px rgb(59, 42, 42) ;
+           word-wrap: break-word;
+           word-break: break-all;
+           padding: 4px;
+           float: right;
+           display: none;
+        }
+        .hover{
+            background-color: rgb(78, 77, 76);
+            border-radius: 7px;
+            margin: 12px 5px;
+            color: whitesmoke;
+            font-size: large;
+            
+        }
+        .hover:hover{
+            background-color: rgb(44, 48, 48);
+            box-shadow:  2px 2px 2px white inset,  -2px -2px -2px rgb(17, 16, 16) inset ;
+            border-radius: 12px;
+        }
+        
+    
+    </style>
+    <body>
+        <div id="container">
+            <div id="output" >
+                <div id="firstoutput" ></div>
+                <div id="finaloutput" ></div>
+            </div>
+                <div id="input">
+                    <button class="hover bg-success" id="onbutton" onclick="onb()">ON</button>
+                    <button class="hover bg-dark" id="numb" onclick="log()">log</button>
+                    <button class="hover bg-dark" id="numb" onclick="trigsin('sin(')">sin</button>
+                    <button class="hover bg-dark" id="clear" onclick="trigcos('cos')">cos</button>
+                    <button class="hover bg-dark" id="del" onclick="trigtan('tan')">tan</button>
+
+                    <button class="hover  bg-dark" id="numb" onclick="facto()">n!</button>
+                    <button class="hover bg-dark" id="numb" onclick="pi()">&#960;</button>
+                    <button class="hover bg-dark" id="numb" onclick="key('^')">^</button>
+                    <button class="hover bg-dark" id="clear" onclick="sqrt()">&radic;</button>
+                    <button class="hover bg-dark" id="del" onclick="changeSign()">&#177;</button>
+
+                    <button class="hover  bg-dark" id="numb" onclick="square()">x&#50;</button>
+                    <button class="hover bg-dark" id="numb" onclick="int()">In</button>
+
+                    <button class="hover bg-dark" id="numb" onclick="eul()">exp</button>
+                    <button class="hover bg-dark" id="clear" onclick="rad()">Rad</button>
+                    <button class="hover  bg-dark" id="numb" onclick="percent()">%</button>
+                    
+
+                    <button class="hover" id="numb" onclick="key('1')">1</button>
+                    <button class="hover" id="numb" onclick="key('2')">2</button>
+                    <button class="hover" id="numb" onclick="key('3')">3</button>
+                    <button class="hover" id="clear" onclick="clearSrc()">CE</button>
+                    <button class="hover" id="del" onclick="del()">DEL</button>
+
+                    <button class="hover" id="numb" onclick="key('4')">4</button>
+                    <button class="hover" id="numb" onclick="key('5')">5</button>
+                    <button class="hover" id="numb" onclick="key('6')">6</button>
+                    <button class="hover" id="evall" onclick="key('+')">+</button>
+                    <button class="hover" id="evall" onclick="key('-')">-</button>
+
+                    <button class="hover" id="numb" onclick="key('7')">7</button>
+                    <button class="hover" id="numb" onclick="key('8')">8</button>
+                    <button class="hover" id="numb" onclick="key('9')">9</button>
+                    <button class="hover" id="evall" onclick="key('*')">&times;</button>
+                    <button class="hover" id="evall" onclick="key('/')">&divide;</button>
+
+                    <button class="hover" id="numb" onclick="key('.')"> . </button>
+                    <button class="hover" id="numb" onclick="key('0')">0</button>
+                    <button class="hover" id="numb" onclick="key('(')">(</button>
+                    <button class="hover" id="evall" onclick="key(')')">)</button>
+                    <button class="span" id="total" onclick="myTotal()">=</button>
+
+                </div>
+                   
+        </div>
+
+        <script type="text/javascript">
+        
+            function key(num){
+                firstoutput.innerHTML += num;
+            }
+
+            function clearSrc(){
+                firstoutput.innerHTML = "";
+                finaloutput.innerHTML = "";
+            }
+
+            function trigsin(numb){
+                firstoutput.innerHTML += numb ;
+
+            }
+
+            function trigcos(numb1){
+                firstoutput.innerHTML += numb1 + "(";
+
+            }
+
+            function trigtan(num2){
+                firstoutput.innerHTML += num2 + "(";
+        
+            }
+            var a = sdddfhdkjhf ^ fhugehjgfehjf
+            
+            function myTotal(){
+                // let a = firstoutput.innerHTML
+                
+                if ((firstoutput.innerHTML).indexOf("^") != -1){
+                    var base = (firstoutput.innerHTML).slice(0, (firstoutput.innerHTML).indexOf("^"));
+                    var exponent = (firstoutput.innerHTML).slice((firstoutput.innerHTML).indexOf("^")+1);
+                    finaloutput.innerHTML = eval("Math.pow(" + base + "," + exponent + ")")
+                    
+                } else if(firstoutput.innerHTML.match("sin")){
+                    let sinnumb = firstoutput.innerHTML.slice(4);
+                    finaloutput.innerHTML = eval("Math.sin(" + sinnumb +  " * Math.PI/180" + ")");
+                } else if(firstoutput.innerHTML.match("cos")){
+                    let sinnumb = firstoutput.innerHTML.slice(4);
+                    finaloutput.innerHTML = eval("Math.cos(" + sinnumb +  " * Math.PI/180" + ")");
+                } else if(firstoutput.innerHTML.match("tan")){
+                    let sinnumb = firstoutput.innerHTML.slice(4);
+                    finaloutput.innerHTML = eval("Math.tan(" + sinnumb +  " * Math.PI/180" + ")");
+                }
+                
+                 else {
+                    finaloutput.innerHTML = eval(firstoutput.innerHTML);
+                }
+                
+                
+            }
+
+            function del(){
+                firstoutput.innerHTML = firstoutput.innerHTML.substr(0, firstoutput.innerHTML.length-1); 
+            }
+
+
+            function cos(){
+                finaloutput.innerHTML = Math.cos(firstoutput.innerHTML);
+            }
+
+            function tan(){
+                finaloutput.innerHTML = Math.tan(firstoutput.innerHTML);
+            }
+
+            function sin(){
+                finaloutput.innerHTML = Math.sin(firstoutput.innerHTML);
+            }
+
+            function pi(){
+                finaloutput.innerHTML = firstoutput.innerHTML * Math.PI;
+            }
+
+            function eul(){
+                finaloutput.innerHTML = Math.exp(firstoutput.innerHTML)
+            }
+            // function deg(){
+            //     if(finaloutput.innerHTML == Math.cos(firstoutput.innerHTML) ){
+            //         finaloutput.innerHTML = Math.cos(firstoutput.innerHTML * Math.PI/180);
+            //     } else if (finaloutput.innerHTML == Math.tan(firstoutput.innerHTML)){
+            //         finaloutput.innerHTML = Math.tan(firstoutput.innerHTML * Math.PI/180)
+            //     } else if (finaloutput.innerHTML == Math.sin(firstoutput.innerHTML)){
+            //         finaloutput.innerHTML = Math.sin(firstoutput.innerHTML * Math.PI/180)
+            //     }    
+            // }
+
+            function sqrt(){
+                finaloutput.innerHTML = Math.sqrt(firstoutput.innerHTML);
+            }
+
+            function log(){
+                finaloutput.innerHTML = Math.log10(firstoutput.innerHTML)
+            }
+
+            function int(){
+                finaloutput.innerHTML = Math.log(firstoutput.innerHTML)
+                //finaloutput.innerHTML = Math.exp(firstoutput.innerHTML)
+                // finaloutput.innerHTML = Math.pow(firstoutput.innerHTML, firstoutput.innerHTML)
+            }
+
+            function square(){
+                //finaloutput.innerHTML = eval(firstoutput.innerHTML) * eval(firstoutput.innerHTML) // OR eval(firstoutput * firstoutput)
+                finaloutput.innerHTML = Math.pow(firstoutput.innerHTML, 2)
+            }
+            // function squarethree(){
+            //     finaloutput.innerHTML = Math.pow()
+            // }
+
+            // function exp(){
+            //     finaloutput.innerHTML = Math.exp(firstoutput.innerHTML)
+            // }
+
+            function changeSign(){
+                if(firstoutput.innerHTML.substring(0, 1) == "-") {
+                    firstoutput.innerHTML = firstoutput.innerHTML.substring(1, firstoutput.innerHTML.lenght)
+                } else {firstoutput.innerHTML = '-' + firstoutput.innerHTML}
+
+            }
+
+            function percent(){
+                if (firstoutput.innerHTML.match('/')){
+                    let temp = eval(firstoutput.innerHTML);
+                    finaloutput.innerHTML = (temp)* 100 + '%';
+                }else {
+                    let tempp = eval(firstoutput.innerHTML);
+                    finaloutput.innerHTML = (tempp)/100 + '%';
+                }  
+            }
+
+            function facto(){
+                var n = firstoutput.innerHTML;
+                let answer = 1;
+                if (n == 0 || n == 1){
+                    return answer;
+                } else {
+                    for(i =n; i >=1; i--){
+                        answer *= i;
+                    }
+                }
+                finaloutput.innerHTML = answer;
+            }
+
+            function onb(){
+                if(finaloutput.style.display ="none" && onbutton.innerHTML == "ON" && finaloutput.style.display =="none") {
+                    firstoutput.style.display = "block";
+                    finaloutput.style.display="block"
+                    onbutton.innerHTML = "OFF"
+                } else{
+                    firstoutput.style.display = "none"
+                    finaloutput.style.display="none"
+                    onbutton.innerHTML = "ON";
+                }
+            }
+
+            function rad(){
+                let radian = firstoutput.innerHTML;
+                let radia = (radian*180)/Math.PI;
+                finaloutput.innerHTML = radia;
+            }
+
+            
+                
+            
+
+
+
+
+        </script>
+
+    </body>
+</html>
